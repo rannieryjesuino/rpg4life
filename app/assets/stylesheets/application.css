@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+ .navbar-brand{
+   font-size: 36px;
+ }
+
+ #tabela{
+   border-style: outset;
+   border-color: rgb(15, 245, 210);
+   text-align: center;
+ }
+
+ #navigation{
+   background-color: rgb(54, 103, 113)!important;
+   font-family: 'Lobster', cursive;
+   color: white;
+ }
+
+ #sessao{
+   color: rgb(15, 245, 210);
+   margin-top: 15px;
+   margin-right: 15px;
+ }
+
+ #data{
+   font-family: 'Lobster', cursive;
+   text-align: center;
+   background-color: black;
+ }
+
+body{
+  background-image: url("background1.png");
+  background-size: cover;
+
+}

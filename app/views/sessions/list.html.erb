@@ -1,0 +1,24 @@
+<div class="col-md-12" , id="players_list">
+  <div id="data">
+    <h3>Lista de Sessões
+    (<%= link_to "+", new_session_url()%>)</h3>
+  </div>
+  <table class="table table-sm table-striped table-dark" , id="tabela">
+    <thead>
+      <tr>
+        <th scope="col">Data</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% sessoes = Session.all %>
+      <% sessoes.each do |sessao| %>
+      <tr>
+        <td><%= sessao.data %></td>
+        <td><%= button_to "Remove", session_url(sessao), method: :delete, class: "btn btn-danger",
+          data: {confirm: "Tem certeza que deseja remover essa sessão?"}%></td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+</div>

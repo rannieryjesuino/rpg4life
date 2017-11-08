@@ -1,0 +1,42 @@
+<div class="row">
+  <% sessoes = @sessoes_por_data %>
+  <% sessoes.each do |sessao| %>
+  <div class="col-md-5" , id="sessao">
+    <div id="data">
+      <h3>Sessão do dia <%= sessao.data%></h3>
+    </div>
+    <table class="table table-sm table-striped table-dark" , id="tabela">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Disponibilidade</th>
+          <th scope="col">Justificativa?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% jogadores = Player.all %>
+        <% jogadores.each do |jogador| %>
+        <tr>
+        <td><%= jogador.nome %></br>(<%= jogador.personagem%>)</td>
+        <td><% a = Attendance.find_by session_id: sessao.id, player_id: jogador.id%>
+            <%= unless a.nil?
+                  a.opcao
+                end%></td>
+        <td><%= unless a.nil?
+                  a.justificativa
+                end%></td>
+        <td><%= unless a.nil?
+                  button_to "Edit", edit_attendance_url(a), class: "btn btn-info"
+                  button_to "Remove", attendance_url(a), method: :delete, class: "btn btn-danger"
+                else
+                  button_to "Add", new_attendance_url(jogador, sessao), class: "btn btn-success"
+                end%>
+        </td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<% end %>
+</div>

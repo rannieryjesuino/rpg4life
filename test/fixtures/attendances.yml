@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  presenca: false
+  justificativa: MyString
+  session_id: 1
+
+two:
+  presenca: false
+  justificativa: MyString
+  session_id: 1

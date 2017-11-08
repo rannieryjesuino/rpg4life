@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="//fonts.googleapis.com/css?family=Lobster&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <title>Rpg 4 Life</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-primary" id="navigation">
+      <div class="container">
+        <%= link_to "RPG 4 Life", root_url, class: "navbar-brand"%>
+        <%= link_to "Sessoes", sessions_list_url, class: "nav-item nav-link", style: "color:white"%>
+        <%= link_to "Jogadores", players_url, class: "nav-item nav-link", style: "color:white"%>
+      </div>
+    </nav>
+    <div class='content container' , id="conteudo">
+      <%= yield %>
+    </div>
+
+  </body>
+</html>

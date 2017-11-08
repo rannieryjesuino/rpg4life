@@ -1,0 +1,8 @@
+<%= form_for @player do |f| %>
+  <h3 id = "estiloDoFormPlayers">Nome do jogador</h3>
+  <%= f.text_field :nome%>
+  <h3 id = "estiloDoFormPlayers">Nome do personagem</h3>
+  <%= f.text_field :personagem%>
+  <%= f.hidden_field :id, value: @player.id%>
+  <%= f.submit "Atualizar Jogador"%>
+<% end %>

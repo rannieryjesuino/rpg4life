@@ -1,0 +1,12 @@
+<%= form_for(@attendance) do |f|%>
+<% jogador = Player.find @attendance.player_id
+sessao = Session.find @attendance.session_id%>
+<h3 id="estiloDoFormPlayers"><%= jogador.nome %>, você irá comparecer à sessão do dia <%= sessao.data%>?
+<%= f.check_box :presenca , {}, true, false %></h3>
+<h3 id="estiloDoFormPlayers">Senão for, apresente uma justificativa:</h3>
+<%= f.text_field :justificativa%>
+<%= f.hidden_field :id, value: @attendance.id%>
+<%= f.submit "Atualizar Resposta" %>
+<% end %>
+
+<%= console%>
