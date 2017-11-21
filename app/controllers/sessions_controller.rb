@@ -6,8 +6,17 @@ class SessionsController < ApplicationController
 
   def create
     parametros = params.require(:session).permit :data
-    sessao = Session.create parametros
-    redirect_to sessions_list_url
+    @sessao = Session.new parametros
+    if @sessao.save
+      flash[:notice] = "Sessao salva com sucesso!"
+      redirect_to sessions_list_url
+    else
+      render :new
+    end
+  end
+
+  def new
+    @sessao = Session.new
   end
 
   def destroy

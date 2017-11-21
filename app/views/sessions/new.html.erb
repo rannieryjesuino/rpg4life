@@ -1,3 +1,9 @@
+<% @sessao.errors.full_messages.each do |message|%>
+  <div class = "alert alert-danger" role = "alert">
+    <%= message%>
+  </div>
+<% end %>
+
 <%= form_for Session.new do |f| %>
   <h3 id = "diaDaSessao">Dia da Sessão:</h3>
   <%= f.text_field :data%>

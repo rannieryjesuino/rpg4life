@@ -2,14 +2,28 @@ class PlayersController < ApplicationController
 
   def create
     parametros = params.require(:player).permit :nome, :personagem
-    jogador = Player.create parametros
-    redirect_to players_url
+    @jogador = Player.new parametros
+    if @jogador.save
+      flash[:notice] = "Jogador salvo com sucesso!"
+      redirect_to players_url
+    else
+      render :new
+    end
+  end
+
+  def new
+    @jogador = Player.new
   end
 
   def destroy
     id = params[:id]
     Player.destroy(id)
     redirect_to players_url
+  end
+
+  def busca
+    @nome_a_buscar = params[:nome]
+    @jogadores = Player.where "nome like ?", "%#{@nome_a_buscar}%"
   end
 
   def edit

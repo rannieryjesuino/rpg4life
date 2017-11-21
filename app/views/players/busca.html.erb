@@ -1,0 +1,26 @@
+<div class="col-md-12" , id="players_list">
+  <div id="data">
+    <h3>Lista de jogadores
+    (<%= link_to "+", new_player_url()%>)</h3>
+  </div>
+  <table class="table table-sm table-striped table-dark" , id="tabela">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Personagem</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jogadores.each do |jogador| %>
+      <tr>
+        <td><%= jogador.nome %></td>
+        <td><%= jogador.personagem%></td>
+        <td><%= button_to "Edit", edit_player_url(jogador), class: "btn btn-info" %>
+        <br><%= button_to "Remove", player_url(jogador), method: :delete, class: "btn btn-danger",
+          data: {confirm: "Tem certeza que deseja remover o jogador #{jogador.nome}?"}%></td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+</div>
