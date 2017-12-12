@@ -2,11 +2,13 @@
 <% jogador = Player.find(id = params[:player_id])%>
 <% sessao = Session.find(id = params[:session_id])%>
 <h3 id="estiloDoFormPlayers"><%= jogador.nome %>, você irá comparecer à sessão do dia <%= sessao.data%>?
-<%= f.check_box :presenca , {}, true, false %></h3>
-<h3 id="estiloDoFormPlayers">Senão for, apresente uma justificativa:</h3>
+<%= f.label :escolha, class: "estiloDoFormPlayers"%>
+<%= f.collection_select :presenca, @choices, :buliano, :opcao, {}, class: "form-control"%>
+<h3 id="estiloDoFormPlayers">Algum detalhe a adicionar?</h3>
 <%= f.text_field :justificativa%>
 <%= f.hidden_field :player_id, value: jogador.id%>
 <%= f.hidden_field :session_id, value: sessao.id%>
+
 
 <%= f.submit "Enviar Resposta"%>
 <% end %>

@@ -18,16 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <% jogadores = Player.all %>
-        <% jogadores.each do |jogador| %>
-        <tr>
-          <td><%= jogador.nome %></td>
-          <td><%= jogador.personagem%></td>
-          <td><%= button_to "Edit", edit_player_url(jogador), class: "btn btn-info" %>
-          <br><%= button_to "Remove", player_url(jogador), method: :delete, class: "btn btn-danger",
-            data: {confirm: "Tem certeza que deseja remover o jogador #{jogador.nome}?"}%></td>
-        </tr>
-        <%end%>
+        <%= render partial: "listaDeJogadores"%>
     </tbody>
   </table>
 </div>

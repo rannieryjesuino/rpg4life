@@ -10,7 +10,7 @@
         <tr>
           <th scope="col">Nome</th>
           <th scope="col">Disponibilidade</th>
-          <th scope="col">Justificativa?</th>
+          <th scope="col">Detalhe</th>
           <th></th>
         </tr>
       </thead>
@@ -18,25 +18,25 @@
         <% jogadores = Player.all %>
         <% jogadores.each do |jogador| %>
         <tr>
-        <td><%= jogador.nome %></br>(<%= jogador.personagem%>)</td>
-        <td><% a = Attendance.find_by session_id: sessao.id, player_id: jogador.id%>
-            <%= unless a.nil?
-                  a.opcao
-                end%></td>
-        <td><%= unless a.nil?
-                  a.justificativa
-                end%></td>
-        <td><%= unless a.nil?
-                  button_to "Edit", edit_attendance_url(a), class: "btn btn-info"
-                  button_to "Remove", attendance_url(a), method: :delete, class: "btn btn-danger"
-                else
-                  button_to "Add", new_attendance_url(jogador, sessao), class: "btn btn-success"
-                end%>
-        </td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
-</div>
-<% end %>
+          <td><%= jogador.nome %></br>(<%= jogador.personagem%>)</td>
+          <td><% a = Attendance.find_by session_id: sessao.id, player_id: jogador.id%>
+              <%= unless a.nil?
+                    a.opcao
+                  end%></td>
+          <td><%= unless a.nil?
+                    a.justificativa
+                  end%></td>
+          <td><%= unless a.nil?
+                    button_to "Edit", edit_attendance_url(a), class: "btn btn-info"
+                    button_to "Remove", attendance_url(a), method: :delete, class: "btn btn-danger"
+                  else
+                    button_to "Add", new_attendance_url(jogador, sessao), class: "btn btn-success"
+                  end%>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
 </div>

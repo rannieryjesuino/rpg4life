@@ -1,0 +1,31 @@
+<div class = "col-md-4 estiloDoFormPlayers">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Choices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Opcao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @choices.each do |choice| %>
+      <tr>
+        <td><%= choice.opcao %></td>
+        <td><%= link_to 'Show', choice %></td>
+        <td><%= link_to 'Edit', edit_choice_path(choice) %></td>
+        <td><%= link_to 'Destroy', choice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Choice', new_choice_path %>
+
+</div>

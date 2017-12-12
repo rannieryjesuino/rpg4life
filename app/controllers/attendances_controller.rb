@@ -12,6 +12,10 @@ class AttendancesController < ApplicationController
       end
   end
 
+  def new
+    @choices = Choice.all
+  end
+
   def edit
     @attendance = Attendance.find params[:id]
   end
