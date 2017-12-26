@@ -1,7 +1,5 @@
 class PlayersController < ApplicationController
 
-  before_action pegar_parametros, only: [:create, :update]
-
   def busca
     @nome_a_buscar = params[:nome]
     @jogadores = Player.where "nome like ?", "%#{@nome_a_buscar}%"
@@ -16,6 +14,7 @@ class PlayersController < ApplicationController
   end
 
   def create
+    pegar_parametros
     @jogador = Player.new @parametros
     if @jogador.save
       flash[:notice] = "Jogador salvo com sucesso!"
@@ -28,6 +27,7 @@ class PlayersController < ApplicationController
   def update
     id = params[:id]
     @jogador = Player.find(id)
+    pegar_parametros
     # Player.update(parametros[:id], :nome => parametros[:nome], :personagem => parametros[:personagem])
     if @jogador.update @parametros
       flash[:notice] = "Jogador atualizado com sucesso!"
