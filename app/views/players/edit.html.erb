@@ -1,8 +1,14 @@
-<%= form_for @player do |f| %>
+<% @jogador.errors.full_messages.each do |message|%>
+  <div class = "alert alert-danger" role = "alert">
+    <%= message%>
+  </div>
+<% end %>
+
+<%= form_for @jogador do |f| %>
   <h3 id = "estiloDoFormPlayers">Nome do jogador</h3>
   <%= f.text_field :nome%>
   <h3 id = "estiloDoFormPlayers">Nome do personagem</h3>
   <%= f.text_field :personagem%>
-  <%= f.hidden_field :id, value: @player.id%>
+  <!-- <%= f.hidden_field :id, value: @jogador.id%> -->
   <%= f.submit "Atualizar Jogador"%>
 <% end %>

@@ -1,4 +1,4 @@
-<% jogadores = Player.all %>
+<% jogadores = Player.order('nome ASC') %>
 <% jogadores.each do |jogador| %>
 <tr>
   <td><%= jogador.nome %></td>
